@@ -42,7 +42,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ slu
   // Trigger real-time WebSocket update for the Live Monitor
   try {
     await pusherServer.trigger(`exam-${exam._id.toString()}`, 'new-submission', {
-      rollNumber: submission.rollNumber,
+      studentRoll: submission.studentRoll,
       name: submission.studentName,
       submittedAt: submission.submittedAt,
     });
